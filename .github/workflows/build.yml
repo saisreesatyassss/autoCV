@@ -1,7 +1,65 @@
-# With some help from: https://gist.github.com/dgerosa/2e1f47a39180f39bde848e38243efa94
+# # With some help from: https://gist.github.com/dgerosa/2e1f47a39180f39bde848e38243efa94
+
+# name: build
+# on: [push]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     env:
+#       # Edit here with the names of your latex file and directory (can use ".")
+#       DIR: .
+#       FILE: cv
+#     steps:
+#       - name: Set up Git repository
+#         uses: actions/checkout@v4
+#       - name: cv
+#         uses: dante-ev/latex-action@latest
+#         with:
+#           root_file: ${{ env.FILE }}
+#           working_directory: ${{ env.DIR }}
+#       - name: move
+#         run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/
+#       - name: Upload pdf as artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: ${{ env.FILE }}.pdf
+#           path: ./github_artifacts
+#   deploy:
+#     needs: [build]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - uses: actions/download-artifact@v4
+#         with:
+#           path: github_artifacts
+#       - name: move
+#         run: mkdir -p github_deploy && mv github_artifacts/*/* github_deploy
+#       - name: deploy on orphan branch
+#         uses: peaceiris/actions-gh-pages@v4
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./github_deploy
+#           publish_branch: build
+#           force_orphan: true
+#           enable_jekyll: true
+#   copy-index-to-build:
+#     needs: [deploy]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+#       - name: Copy To Branches Action
+#         uses: planetoftheweb/copy-to-branches@v1.3
+#         env:
+#           key: main
+#           files: index.html CNAME
 
 name: build
+
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,30 +70,39 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
-      - name: cv
+
+      - name: Compile LaTeX
         uses: dante-ev/latex-action@latest
         with:
-          root_file: ${{ env.FILE }}
+          root_file: ${{ env.FILE }}.tex
           working_directory: ${{ env.DIR }}
-      - name: move
+
+      - name: Move PDF to artifacts directory
         run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/
-      - name: Upload pdf as artifact
+
+      - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.FILE }}.pdf
+          name: pdf_artifact
           path: ./github_artifacts
+
   deploy:
-    needs: [build]
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
         with:
+          name: pdf_artifact
           path: github_artifacts
-      - name: move
-        run: mkdir -p github_deploy && mv github_artifacts/*/* github_deploy
-      - name: deploy on orphan branch
+
+      - name: Move artifacts to deploy directory
+        run: mkdir -p github_deploy && mv github_artifacts/* github_deploy/
+
+      - name: Deploy to GitHub Pages on orphan branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -43,14 +110,17 @@ jobs:
           publish_branch: build
           force_orphan: true
           enable_jekyll: true
+
   copy-index-to-build:
-    needs: [deploy]
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository with full history
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Copy To Branches Action
+
+      - name: Copy index.html and CNAME to main branch
         uses: planetoftheweb/copy-to-branches@v1.3
         env:
           key: main
