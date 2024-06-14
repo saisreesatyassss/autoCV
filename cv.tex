@@ -1,26 +1,3 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2021 Jitin Nair
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-
 %----------------------------------------------------------------------------------------
 %	DOCUMENT DEFINITION
 %----------------------------------------------------------------------------------------
@@ -55,7 +32,7 @@
 \RequirePackage{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
-
+ \newgeometry{left=1cm,right=1cm,top=0.7cm,bottom=0cm}
 %tabularx environment
 \usepackage{tabularx}
 
@@ -79,7 +56,7 @@
 %CV Sections inspired by: 
 %http://stefano.italians.nl/archives/26
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
+\titlespacing{\section}{0pt}{0pt}{2pt}
 
 %for publications
 \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
@@ -96,33 +73,6 @@
 
 %debug page outer frames
 %\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    }
-    {
-    }
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
-
-
-
 %----------------------------------------------------------------------------------------
 %	BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
@@ -142,12 +92,11 @@
 % \end{tabularx}
 
 \begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
-\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
+\Huge{Padala Saisrisatya Subramaneswar} \\[1.5pt]
+\href{https://github.com/saisreesatyassss}{\raisebox{-0.05\height}\faGithub\ saisreesatyassss} \ $|$ \ 
+\href{https://www.linkedin.com/in/saisreesatyassss/}{\raisebox{-0.05\height}\faLinkedin\ saisreesatyassss} \ $|$ \ 
+\href{mailto:saisreesatyassss@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ saisreesatyassss@gmail.com} \ $|$ \ 
+\href{tel:+917842446454}{\raisebox{-0.05\height}\faMobile \ +917842446454} \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -155,63 +104,176 @@
 %----------------------------------------------------------------------------------------
 
 %Interests/ Keywords/ Summary
-\section{Summary}
-This CV is automatically generated and deployed using the \href{https://github.com/jitinnair1/autoCV}{autoCV} template along with GitHub Actions such that a new version of the CV is compiled, published and ready for use when the cv.tex file is updated. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+% \section{Summary}
+% This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+
+
+
 
 %Experience
 \section{Work Experience}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{NullClass} & \hfill Sep 2023 - May 2024 \\[3pt]
+\textbf{Machine Learning Intern} & \hfill India · Remote \\[2pt] 
+\multicolumn{2}{@{}X@{}}{
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=0.5pt]
+          \item[--] Taught machine learning concepts and techniques, emphasizing practical applications in real scenarios
+        \item[--] Focused on   data preprocessing, model training, and evaluation, ensuring comprehensive understanding
+        \item[--] Guided students, resolved doubts, provided detailed feedback,  evaluated projects to enhance outcomes.
+    \end{itemize}
+\end{minipage}
+}
+\end{tabularx}
 
-\begin{jobshort}{Designation}{Jan 2021 - present}
-long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
-\end{jobshort}
+\vspace{-20pt} % Adjust this value to decrease or increase the gap
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Traceworks Technologies} & \hfill Dec 2023 - May 2024 \\[3pt]
+\textbf{Full Stack Developer} & \hfill India · Remote \\[2pt] 
+\multicolumn{2}{@{}X@{}}{
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=0.5pt]
 
+        \item[--] Optimized full stack applications with React,Node.js,MongoDB, significantly cutting load times by 40\%
+        \item[--] Designed scalable microservices, greatly increasing user engagement by 25\% with interactive features
+        \item[--] Seamlessly integrated diverse APIs, resolving critical bottlenecks and enhancing user satisfaction.
 
-\begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-\item long long line of blah blah that will wrap when the table fills the column width
-\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
-\end{joblong}
-  
+    \end{itemize}
+\end{minipage}
+}
+\end{tabularx}
+
+\vspace{-20pt} % Adjust this value to decrease or increase the gap
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Digital Fortress} & \hfill Jun 2023 - present \\[3pt]
+\textbf{Flutter Developer} & \hfill India · Remote \\[2pt] 
+\multicolumn{2}{@{}X@{}}{
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=0.5pt]
+        \item[--] Boosted user satisfaction by 20\% through UI enhancements,  improved user retention and ratings
+        \item[--] Strengthened team dynamics via active code reviews, insightful contributions, and solution proposals
+        \item[--]  Used Firebase expertise Firestore, Authentication, Cloud Functions for seamless backend development.
+    \end{itemize}
+\end{minipage}
+}
+\end{tabularx}
+
+\vspace{-18pt} % Adjust this value to decrease or increase the gap
+
 %Projects
+
 \section{Projects}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+\textbf{MediBot} & \hfill \href{https://psssshms.vercel.app/}{Link to Demo} \\[6pt]
+\multicolumn{2}{@{}X@{}}{
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=4pt]
+        \item[--] Pioneered MediBot, a revolutionary telemedicine platform integrating AI-powered chatbot assistance, virtual consultations, and personalized health management tools for seamless healthcare access
+        \item[--] Led the development of a cutting-edge symptom analyzer, empowering users to identify potential health conditions and receive real-time medical assistance, streamlining their healthcare journey
+        \item[--] Spearheaded the creation of a user-friendly interface for scheduling medical appointments and accessing personalized diet plans, enhancing healthcare accessibility and convenience for users worldwide.
+    \end{itemize}
+\end{minipage}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{PersonaAI} & \hfill \href{https://personaai.streamlit.app/}{Link to Demo} \\[6pt]
+\multicolumn{2}{@{}X@{}}{
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=4pt]
+        \item[--] Developed Persona AI, an advanced multilingual chatbot leveraging NLP and the Transformers Library for highly personalized, context-aware interactions, enhancing user experience with adaptive responses
+        \item[--] Engineered multilingual support and integrated gTTS (Google Text-to-Speech) to provide high-quality text and speech responses, broadening accessibility and delivering a seamless experience across languages
+        \item[--] Designed and optimized a robust database schema using SQLite for efficient storage and retrieval of user interaction data, enabling advanced personalization and ensuring scalability for a growing user base.
+    \end{itemize}
+\end{minipage}
+}
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
+
+\vspace{0pt} % Adjust this value to decrease or increase the gap
+
 \section{Education}
 \begin{tabularx}{\linewidth}{@{}l X@{}}	
-2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
+% 2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
 
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
+2021 - 2025 & BTech, Computer Science and Engineering (AIML)   \textbf{VIT-AP University} \hfill (GPA: 8.76) \\ 
 
-2022 & Class 12th Some Board \hfill  (Grades) \\
+2019 - 2021  & Class 12th State Board Of Intermediate Education   \textbf{Narayana Junior College}  \hfill  (95.2\%) \\
 
-2021 & Class 10th Some Board \hfill  (Grades) \\
+2018 - 2019  & Class 10th Central Board of Secondary Education   \textbf{Sri Chaitanya School}  \hfill  (93.5\%) \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
 %	PUBLICATIONS
 %----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
+% \section{Publications}
+% \begin{refsection}[citations.bib]
+% \nocite{*}
+% \printbibliography[heading=none]
+% \end{refsection}
 
 %----------------------------------------------------------------------------------------
 %	SKILLS
 %----------------------------------------------------------------------------------------
+% \section{Skills}
+% \begin{tabularx}{\linewidth}{@{}l X@{}}
+% Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
+% Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+% \end{tabularx}
+
+ %----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
 \section{Skills}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+
+Proficient in front-end and back-end technologies: HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, SQL, RESTful APIs, Git/GitHub. Experienced in AI and machine learning frameworks: TensorFlow, PyTorch, Hugging Face Transformers. Expertise in NLP, chatbot development, and analysis.
+
+
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%----------------------------------------------------------------------------------------
+\section{Awards}
+% \begin{tabularx}{\linewidth}{@{}X@{}}
+% \begin{itemize}[nosep, leftmargin=*]
+%     \item 1st place in "CODE WITH GEAR" by Centre of Excellence,NextGen Cloud Club,and Microsoft Chapter
+%     \item Won 1st prize in "24-HOUR HACKQUEST" for innovative solutions in a competitive COE IoT event
+%     \item Recognized among the Top Ten for outstanding performance in all Engineering Clinics Group Projects
+%     \item Won 3rd prize in "24-Hr Web App Hackathon", demonstrating problem-solving and teamwork skills
+% \end{itemize}
+% \end{tabularx}
+
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\multicolumn{2}{@{}X@{}}{
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=4pt]
+        \item[--]  1st place in "CODE WITH GEAR" by Centre of Excellence,NextGen Cloud Club,and Microsoft Chapter
+        \item[--]  Won 1st prize in "24-HOUR HACKQUEST" for innovative solutions in a competitive COE IoT event
+        \item[--]  Recognized among the Top Ten for outstanding performance in all Engineering Clinics Group Projects
+        \item[--]  Secured 3rd place in a 24-hour Web App Hackathon by leading a team of four, showcasing exceptional problem-solving and teamwork skills, and developing a functional prototype that impressed judges.
+      
+    \end{itemize}
+\end{minipage}
+}
 \end{tabularx}
 
-\vfill
-\center{\footnotesize Last updated: \today}
+
+\end{document}
+
+
+\end{document}
+
+
+
+\end{document}
+
+% \vfill
+% \center{\footnotesize Last updated: \today}
 
 \end{document}
